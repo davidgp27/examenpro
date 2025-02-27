@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Personas>
+    <Persona>
+        <DNI>123456789A</DNI>
+        <Nombre>Carlos</Nombre>
+        <Apellido>García Pérez</Apellido>
+        <Edad>30</Edad>
+        <Casado>true</Casado>
+        <Teléfono>600123456</Teléfono>
+        <Dirección>Calle Mayor 10, Madrid</Dirección>
+    </Persona>
+    <Persona>
+        <DNI>987654321B</DNI>
+        <Nombre>Laura</Nombre>
+        <Apellido>Martínez Gómez</Apellido>
+        <Edad>25</Edad>
+        <Casado>false</Casado>
+        <Teléfono>690987654</Teléfono>
+        <Dirección>Av. Libertad 5, Barcelona</Dirección>
+    </Persona>
+    <Persona>
+        <DNI>567890123C</DNI>
+        <Nombre>Miguel</Nombre>
+        <Apellido>Fernández López</Apellido>
+        <Edad>40</Edad>
+        <Casado>true</Casado>
+        <Teléfono>675456789</Teléfono>
+        <Dirección>Paseo del Prado 20, Valencia</Dirección>
+    </Persona>
+</Personas>
