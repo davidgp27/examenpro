@@ -1,3 +1,5 @@
+package FIcheros;
+
 public class pruebasax {
     public static void main(String[] args)
             throws FileNotFoundException, IOException, SAXException{
@@ -16,7 +18,7 @@ class GestionContenido extends DefaultHandler {
         System.out.println("Comienzo del Documento XML");
     }
 
-    Capítulo 1. Manejo de Ficheros. Parte 6 11
+
     public void endDocument() {
         System.out.println("Final del Documento XML");
     }
