@@ -5,21 +5,21 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Ejercicio13 {
+public class Ejercicio13
+{
 
             public static void main(String[] args) {
                 try
                 {
                     Class.forName("com.mysql.jdbc.Driver"); //Cargar el driver
                     Connection conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost/empleados2", "root", "Primera2024");
+                            "jdbc:mysql://localhost/dbempresa", "root", "Primera2024");
 
                     //Recuperar arg de main
                     String emp_no= args[0];        //num_e
                     String apellido= args[1];    //apellido
                     String oficio= args[2];        //oficio
                     String dir= args[3];        //dir
-                    boolean sinDirector = dir.equals("0");
                     String salario= args[4];        //salario
                     String comision= args[5];        //comision
                     String dept_no= args[6];        //num dept
@@ -71,24 +71,23 @@ public class Ejercicio13 {
                         return;
                     }
 
-                    if (!sinDirector) {
-                        String consultaDirector = "SELECT COUNT(*) FROM EMPLEADOS WHERE EMP_NO = ?";
-                        PreparedStatement pstmtDirector = conexion.prepareStatement(consultaDirector);
-                        pstmtDirector.setInt(1, Integer.parseInt(dir));
+                    String consultaDirector = "SELECT COUNT(*) FROM EMPLEADOS WHERE EMP_NO = ?";
+                    PreparedStatement pstmtDirector = conexion.prepareStatement(consultaDirector);
+                    pstmtDirector.setInt(1, Integer.parseInt(dir));
 
-                        ResultSet resultadoDirector = pstmtDirector.executeQuery();
-                        resultadoDirector.next();
-                        int countDirector = resultadoDirector.getInt(1);
-                        resultadoDirector.close();
-                        pstmtDirector.close();
+                    ResultSet resultadoDirector = pstmtDirector.executeQuery();
+                    resultadoDirector.next();
+                    int countDirector = resultadoDirector.getInt(1);
+                    resultadoDirector.close();
+                    pstmtDirector.close();
 
-                        if (countDirector == 0) {
-                            System.out.println("Error: El director con número " + dir + " no existe en la tabla empleados.");
-                            conexion.close();
-                            return;
-                        }
+
+                    //director
+                    if (countDirector == 0) {
+                        System.out.println("Error: El director con número " + dir + " no existe en la tabla empleados.");
+                        conexion.close();
+                        return;
                     }
-
 
                     if (apellido == null || apellido.trim().isEmpty() || oficio == null || oficio.trim().isEmpty()) {
                         System.out.println("Error: El APELLIDO y el OFICIO no pueden ser nulos.");
@@ -102,10 +101,10 @@ public class Ejercicio13 {
                     LocalDate fechaAlta = LocalDate.now();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     String fechaAltaStr = fechaAlta.format(formatter);
-                    String dirValue = sinDirector ? "NULL" : dir;
+
 
                     String sql = String.format("INSERT INTO EMPLEADOS VALUES(%s, '%s', '%s', %s, '%s', %s, %s, %s)",
-                            emp_no, apellido, oficio, dirValue, fechaAltaStr, salario, comision, dept_no);
+                            emp_no, apellido, oficio, dir, fechaAltaStr, salario, comision, dept_no);
 
                     System.out.println(sql);
 

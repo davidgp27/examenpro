@@ -3,7 +3,7 @@ import java.sql.*;
 public class MostrarCLavePrimaria {
     public static void main(String[] args) {
         // Configura estos valores según tu entorno
-        String url = "jdbc:mysql://localhost:3306/Empleados1?useSSL=false";
+        String url = "jdbc:mysql://localhost:3306/dbempresa?useSSL=false";
         String user = "root"; // tu usuario de MySQL
         String password = "Primera2024"; // tu contraseña de MySQL
 

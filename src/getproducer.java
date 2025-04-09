@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class getproducer {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/empleados1";
+        String url = "jdbc:mysql://localhost:3306/dbempresa";
         String usuario = "root";
         String contraseña = "Primera2024";
 
